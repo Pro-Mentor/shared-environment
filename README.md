@@ -31,7 +31,7 @@
 
 ### CI/CD
 
-<img src="https://github.com/Pro-Mentor/shared-environment/blob/main/assets/Shared_ENV_Deployment.png" alt="CI/CD diagram" title="CI/CD Diagram">
+<img src="https://github.com/Pro-Mentor/shared-environment/blob/main/assets/Shared_ENV_Deployment.drawio.png" alt="CI/CD diagram" title="CI/CD Diagram">
 
 ## Referances
 
