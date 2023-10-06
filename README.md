@@ -29,6 +29,14 @@
     password: admin
 ```
 
+- go to <b>Users</b> and set admin account email in master realm
+
+- select the relevant realms from top left drop down and go to <b>Realm Settings</b> -> <b> Email</b> Tab.
+
+- In the <b>Connection & Authentication</b> section first <i>Disable</i> the <b>Authentication</b> and then <i>Enable</i> it.
+
+- Replace the <b>Password</b> with the SMTP server access key and <b>Save</b> it and click on <b>Test Connection</b> to test the connection
+
 ### CI/CD
 
 <img src="https://github.com/Pro-Mentor/shared-environment/blob/main/assets/Shared_ENV_Deployment.png" alt="CI/CD diagram" title="CI/CD Diagram">
