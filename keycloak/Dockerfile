@@ -1,4 +1,4 @@
-FROM quay.io/keycloak/keycloak:22.0.1 AS builder
+FROM quay.io/keycloak/keycloak:22.0.3 AS builder
 
 WORKDIR /opt/keycloak
 
