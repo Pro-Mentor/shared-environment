@@ -22,7 +22,7 @@
 
 ## Go to keycloak admin console
 
-- http://idp.promentor.local:8080/
+- http://idp.promentor.local/
 
 ```
     username: admin
