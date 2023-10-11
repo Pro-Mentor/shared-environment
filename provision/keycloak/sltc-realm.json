@@ -1,8 +1,8 @@
 {
   "id": "2b4297ba-5afa-4585-a049-728855eeffcf",
   "realm": "sltc",
-  "displayName": "SRI Lanka Technological Campus",
-  "displayNameHtml": "",
+  "displayName": "SLTC",
+  "displayNameHtml": "<div class=\"kc-logo-text\"><span>SLTC</span></div>",
   "notBefore": 0,
   "defaultSignatureAlgorithm": "RS256",
   "revokeRefreshToken": false,
@@ -29,14 +29,14 @@
   "oauth2DevicePollingInterval": 5,
   "enabled": true,
   "sslRequired": "external",
-  "registrationAllowed": true,
-  "registrationEmailAsUsername": true,
+  "registrationAllowed": false,
+  "registrationEmailAsUsername": false,
   "rememberMe": true,
-  "verifyEmail": false,
+  "verifyEmail": true,
   "loginWithEmailAllowed": true,
   "duplicateEmailsAllowed": false,
   "resetPasswordAllowed": true,
-  "editUsernameAllowed": true,
+  "editUsernameAllowed": false,
   "bruteForceProtected": false,
   "permanentLockout": false,
   "maxFailureWaitSeconds": 900,
@@ -48,10 +48,84 @@
   "roles": {
     "realm": [
       {
+        "id": "4944071e-f6d3-4d8d-bf6a-1a8f330c83dc",
+        "name": "resources-management",
+        "description": "This is for manage the resources of the system",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "2b4297ba-5afa-4585-a049-728855eeffcf",
+        "attributes": {}
+      },
+      {
+        "id": "99c06df5-2b7c-4118-9e7b-6326e61302e0",
+        "name": "account-admin",
+        "description": "This is the account owner.",
+        "composite": true,
+        "composites": {
+          "realm": [
+            "admin"
+          ]
+        },
+        "clientRole": false,
+        "containerId": "2b4297ba-5afa-4585-a049-728855eeffcf",
+        "attributes": {}
+      },
+      {
         "id": "1d782adb-b4e2-45f6-b05d-235c66fe5327",
         "name": "uma_authorization",
         "description": "${role_uma_authorization}",
         "composite": false,
+        "clientRole": false,
+        "containerId": "2b4297ba-5afa-4585-a049-728855eeffcf",
+        "attributes": {}
+      },
+      {
+        "id": "7f899b39-bc53-4635-b879-93139a31a642",
+        "name": "user",
+        "description": "This is the user of the application",
+        "composite": false,
+        "clientRole": false,
+        "containerId": "2b4297ba-5afa-4585-a049-728855eeffcf",
+        "attributes": {}
+      },
+      {
+        "id": "fd5e092e-c206-4e0c-8899-d80a4e800d48",
+        "name": "student",
+        "description": "This is for students",
+        "composite": true,
+        "composites": {
+          "realm": [
+            "user"
+          ]
+        },
+        "clientRole": false,
+        "containerId": "2b4297ba-5afa-4585-a049-728855eeffcf",
+        "attributes": {}
+      },
+      {
+        "id": "487b1c59-94cb-40d8-8d3d-eebed501381e",
+        "name": "admin",
+        "description": "Admin account of the application",
+        "composite": true,
+        "composites": {
+          "realm": [
+            "resources-management"
+          ]
+        },
+        "clientRole": false,
+        "containerId": "2b4297ba-5afa-4585-a049-728855eeffcf",
+        "attributes": {}
+      },
+      {
+        "id": "94edd0bd-07b2-4296-acbc-85ad576d8b83",
+        "name": "lecture",
+        "description": "This is for lectures.",
+        "composite": true,
+        "composites": {
+          "realm": [
+            "user"
+          ]
+        },
         "clientRole": false,
         "containerId": "2b4297ba-5afa-4585-a049-728855eeffcf",
         "attributes": {}
@@ -179,17 +253,17 @@
                 "query-users",
                 "view-users",
                 "view-clients",
-                "view-identity-providers",
-                "view-authorization",
                 "query-clients",
-                "view-realm",
+                "view-authorization",
+                "view-identity-providers",
                 "manage-realm",
+                "view-realm",
                 "impersonation",
                 "manage-identity-providers",
                 "query-groups",
                 "manage-clients",
-                "view-events",
                 "query-realms",
+                "view-events",
                 "manage-authorization",
                 "manage-events",
                 "manage-users"
@@ -301,6 +375,7 @@
         }
       ],
       "security-admin-console": [],
+      "client-frontend-web-app": [],
       "admin-cli": [],
       "account-console": [],
       "broker": [
@@ -404,7 +479,52 @@
       ]
     }
   },
-  "groups": [],
+  "groups": [
+    {
+      "id": "632a2ad9-58f9-41b7-9f00-94cf155f868c",
+      "name": "admin",
+      "path": "/admin",
+      "attributes": {},
+      "realmRoles": [
+        "admin"
+      ],
+      "clientRoles": {},
+      "subGroups": []
+    },
+    {
+      "id": "0266055f-4b9b-48be-9770-df19b2a918ec",
+      "name": "it-department",
+      "path": "/it-department",
+      "attributes": {},
+      "realmRoles": [
+        "resources-management"
+      ],
+      "clientRoles": {},
+      "subGroups": []
+    },
+    {
+      "id": "6cd7ebd9-c11f-4e04-91c0-8e3d9a7a90bf",
+      "name": "lecture",
+      "path": "/lecture",
+      "attributes": {},
+      "realmRoles": [
+        "lecture"
+      ],
+      "clientRoles": {},
+      "subGroups": []
+    },
+    {
+      "id": "3ba9a91c-de58-4a15-bdc5-ce94fbbc81b7",
+      "name": "student",
+      "path": "/student",
+      "attributes": {},
+      "realmRoles": [
+        "student"
+      ],
+      "clientRoles": {},
+      "subGroups": []
+    }
+  ],
   "defaultRole": {
     "id": "d89e1fb7-d542-44dd-897a-31b303d7b6a8",
     "name": "default-roles-sltc",
@@ -416,6 +536,7 @@
   "requiredCredentials": [
     "password"
   ],
+  "passwordPolicy": "length(8) and notEmail(undefined) and notUsername(undefined) and specialChars(1) and upperCase(1) and lowerCase(1) and digits(1) and maxLength(64)",
   "otpPolicyType": "totp",
   "otpPolicyAlgorithm": "HmacSHA1",
   "otpPolicyInitialCounter": 0,
@@ -591,7 +712,9 @@
       "publicClient": true,
       "frontchannelLogout": false,
       "protocol": "openid-connect",
-      "attributes": {},
+      "attributes": {
+        "post.logout.redirect.uris": "+"
+      },
       "authenticationFlowBindingOverrides": {},
       "fullScopeAllowed": false,
       "nodeReRegistrationTimeout": 0,
@@ -629,10 +752,64 @@
       "publicClient": false,
       "frontchannelLogout": false,
       "protocol": "openid-connect",
-      "attributes": {},
+      "attributes": {
+        "post.logout.redirect.uris": "+"
+      },
       "authenticationFlowBindingOverrides": {},
       "fullScopeAllowed": false,
       "nodeReRegistrationTimeout": 0,
+      "defaultClientScopes": [
+        "web-origins",
+        "acr",
+        "roles",
+        "profile",
+        "email"
+      ],
+      "optionalClientScopes": [
+        "address",
+        "phone",
+        "offline_access",
+        "microprofile-jwt"
+      ]
+    },
+    {
+      "id": "73ae10d1-2457-4dfd-95f4-995e68d02f5b",
+      "clientId": "client-frontend-web-app",
+      "name": "Frontend Client",
+      "description": "Client for the front end application",
+      "rootUrl": "http://sltc.app.promentor.local:3000",
+      "adminUrl": "http://sltc.app.promentor.local:3000",
+      "baseUrl": "http://sltc.app.promentor.local:3000",
+      "surrogateAuthRequired": false,
+      "enabled": true,
+      "alwaysDisplayInConsole": false,
+      "clientAuthenticatorType": "client-secret",
+      "redirectUris": [
+        "http://sltc.app.promentor.local:3000/*"
+      ],
+      "webOrigins": [
+        "http://sltc.app.promentor.local:3000"
+      ],
+      "notBefore": 0,
+      "bearerOnly": false,
+      "consentRequired": false,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "publicClient": true,
+      "frontchannelLogout": true,
+      "protocol": "openid-connect",
+      "attributes": {
+        "oidc.ciba.grant.enabled": "false",
+        "post.logout.redirect.uris": "http://sltc.app.promentor.local:3000",
+        "oauth2.device.authorization.grant.enabled": "false",
+        "backchannel.logout.session.required": "true",
+        "backchannel.logout.revoke.offline.tokens": "false"
+      },
+      "authenticationFlowBindingOverrides": {},
+      "fullScopeAllowed": true,
+      "nodeReRegistrationTimeout": -1,
       "defaultClientScopes": [
         "web-origins",
         "acr",
@@ -667,7 +844,9 @@
       "publicClient": false,
       "frontchannelLogout": false,
       "protocol": "openid-connect",
-      "attributes": {},
+      "attributes": {
+        "post.logout.redirect.uris": "+"
+      },
       "authenticationFlowBindingOverrides": {},
       "fullScopeAllowed": false,
       "nodeReRegistrationTimeout": 0,
@@ -814,7 +993,8 @@
           "consentRequired": false,
           "config": {
             "id.token.claim": "true",
-            "access.token.claim": "true"
+            "access.token.claim": "true",
+            "userinfo.token.claim": "true"
           }
         }
       ]
@@ -893,6 +1073,7 @@
           "consentRequired": false,
           "config": {
             "multivalued": "true",
+            "userinfo.token.claim": "true",
             "user.attribute": "foo",
             "id.token.claim": "true",
             "access.token.claim": "true",
@@ -1282,7 +1463,20 @@
     "xXSSProtection": "1; mode=block",
     "strictTransportSecurity": "max-age=31536000; includeSubDomains"
   },
-  "smtpServer": {},
+  "smtpServer": {
+    "replyToDisplayName": "Pro Mentor Team",
+    "starttls": "false",
+    "auth": "true",
+    "envelopeFrom": "promentororg@gmail.com",
+    "ssl": "true",
+    "password": "**********",
+    "port": "465",
+    "host": "smtp.gmail.com",
+    "replyTo": "promentororg@gmail.com",
+    "from": "promentororg@gmail.com",
+    "fromDisplayName": "Pro Mentor",
+    "user": "promentororg@gmail.com"
+  },
   "eventsEnabled": false,
   "eventsListeners": [
     "jboss-logging"
@@ -1302,14 +1496,14 @@
         "subComponents": {},
         "config": {
           "allowed-protocol-mapper-types": [
+            "oidc-usermodel-property-mapper",
+            "saml-role-list-mapper",
+            "saml-user-property-mapper",
+            "oidc-address-mapper",
+            "oidc-sha256-pairwise-sub-mapper",
             "saml-user-attribute-mapper",
             "oidc-usermodel-attribute-mapper",
-            "oidc-usermodel-property-mapper",
-            "oidc-sha256-pairwise-sub-mapper",
-            "oidc-address-mapper",
-            "oidc-full-name-mapper",
-            "saml-role-list-mapper",
-            "saml-user-property-mapper"
+            "oidc-full-name-mapper"
           ]
         }
       },
@@ -1351,12 +1545,12 @@
           "allowed-protocol-mapper-types": [
             "oidc-usermodel-property-mapper",
             "oidc-sha256-pairwise-sub-mapper",
-            "saml-user-property-mapper",
-            "oidc-usermodel-attribute-mapper",
-            "saml-user-attribute-mapper",
             "oidc-full-name-mapper",
             "saml-role-list-mapper",
-            "oidc-address-mapper"
+            "saml-user-attribute-mapper",
+            "saml-user-property-mapper",
+            "oidc-address-mapper",
+            "oidc-usermodel-attribute-mapper"
           ]
         }
       },
@@ -1398,6 +1592,14 @@
             "true"
           ]
         }
+      }
+    ],
+    "org.keycloak.userprofile.UserProfileProvider": [
+      {
+        "id": "06f8749b-38d4-4466-b416-f068b3d361a0",
+        "providerId": "declarative-user-profile",
+        "subComponents": {},
+        "config": {}
       }
     ],
     "org.keycloak.keys.KeyProvider": [
@@ -1994,29 +2196,29 @@
   ],
   "requiredActions": [
     {
+      "alias": "UPDATE_PASSWORD",
+      "name": "Update Password",
+      "providerId": "UPDATE_PASSWORD",
+      "enabled": true,
+      "defaultAction": true,
+      "priority": 10,
+      "config": {}
+    },
+    {
       "alias": "CONFIGURE_TOTP",
       "name": "Configure OTP",
       "providerId": "CONFIGURE_TOTP",
       "enabled": true,
       "defaultAction": false,
-      "priority": 10,
+      "priority": 20,
       "config": {}
     },
     {
       "alias": "TERMS_AND_CONDITIONS",
       "name": "Terms and Conditions",
       "providerId": "TERMS_AND_CONDITIONS",
-      "enabled": false,
-      "defaultAction": false,
-      "priority": 20,
-      "config": {}
-    },
-    {
-      "alias": "UPDATE_PASSWORD",
-      "name": "Update Password",
-      "providerId": "UPDATE_PASSWORD",
       "enabled": true,
-      "defaultAction": false,
+      "defaultAction": true,
       "priority": 30,
       "config": {}
     },
@@ -2034,7 +2236,7 @@
       "name": "Verify Email",
       "providerId": "VERIFY_EMAIL",
       "enabled": true,
-      "defaultAction": false,
+      "defaultAction": true,
       "priority": 50,
       "config": {}
     },
@@ -2073,6 +2275,15 @@
       "defaultAction": false,
       "priority": 1000,
       "config": {}
+    },
+    {
+      "alias": "VERIFY_PROFILE",
+      "name": "Verify Profile",
+      "providerId": "VERIFY_PROFILE",
+      "enabled": false,
+      "defaultAction": false,
+      "priority": 1001,
+      "config": {}
     }
   ],
   "browserFlow": "browser",
@@ -2084,8 +2295,8 @@
   "attributes": {
     "cibaBackchannelTokenDeliveryMode": "poll",
     "cibaAuthRequestedUserHint": "login_hint",
-    "oauth2DevicePollingInterval": "5",
     "clientOfflineSessionMaxLifespan": "0",
+    "oauth2DevicePollingInterval": "5",
     "clientSessionIdleTimeout": "0",
     "clientOfflineSessionIdleTimeout": "0",
     "cibaInterval": "5",
@@ -2097,7 +2308,7 @@
     "frontendUrl": "",
     "acr.loa.map": "{}"
   },
-  "keycloakVersion": "22.0.1",
+  "keycloakVersion": "22.0.3",
   "userManagedAccessAllowed": false,
   "clientProfiles": {
     "profiles": []
