@@ -39,6 +39,8 @@ services:
       - DEBUG=true
     volumes:
       - ./provision/keycloak:/tmp/import
+      # disable theam cache
+      - ./keycloak/scripts/disable-theam-cache.cli:/opt/jboss/startup-scripts/disable-theam-cache.cli
     command:
       - "-Dkeycloak.migration.action=import"
       - "-Dkeycloak.migration.provider=dir"
