@@ -545,9 +545,9 @@
   "otpPolicyPeriod": 30,
   "otpPolicyCodeReusable": false,
   "otpSupportedApplications": [
-    "totpAppFreeOTPName",
     "totpAppGoogleName",
-    "totpAppMicrosoftAuthenticatorName"
+    "totpAppMicrosoftAuthenticatorName",
+    "totpAppFreeOTPName"
   ],
   "webAuthnPolicyRpEntityName": "keycloak",
   "webAuthnPolicySignatureAlgorithms": [
@@ -1477,6 +1477,10 @@
     "fromDisplayName": "Pro Mentor",
     "user": "promentororg@gmail.com"
   },
+  "loginTheme": "custom",
+  "accountTheme": "",
+  "adminTheme": "",
+  "emailTheme": "",
   "eventsEnabled": false,
   "eventsListeners": [
     "jboss-logging"
@@ -1496,14 +1500,14 @@
         "subComponents": {},
         "config": {
           "allowed-protocol-mapper-types": [
+            "oidc-usermodel-attribute-mapper",
+            "oidc-full-name-mapper",
             "oidc-usermodel-property-mapper",
             "saml-role-list-mapper",
-            "saml-user-property-mapper",
-            "oidc-address-mapper",
-            "oidc-sha256-pairwise-sub-mapper",
             "saml-user-attribute-mapper",
-            "oidc-usermodel-attribute-mapper",
-            "oidc-full-name-mapper"
+            "oidc-address-mapper",
+            "saml-user-property-mapper",
+            "oidc-sha256-pairwise-sub-mapper"
           ]
         }
       },
@@ -1543,13 +1547,13 @@
         "subComponents": {},
         "config": {
           "allowed-protocol-mapper-types": [
-            "oidc-usermodel-property-mapper",
             "oidc-sha256-pairwise-sub-mapper",
             "oidc-full-name-mapper",
             "saml-role-list-mapper",
+            "oidc-address-mapper",
             "saml-user-attribute-mapper",
             "saml-user-property-mapper",
-            "oidc-address-mapper",
+            "oidc-usermodel-property-mapper",
             "oidc-usermodel-attribute-mapper"
           ]
         }
@@ -1592,14 +1596,6 @@
             "true"
           ]
         }
-      }
-    ],
-    "org.keycloak.userprofile.UserProfileProvider": [
-      {
-        "id": "06f8749b-38d4-4466-b416-f068b3d361a0",
-        "providerId": "declarative-user-profile",
-        "subComponents": {},
-        "config": {}
       }
     ],
     "org.keycloak.keys.KeyProvider": [
