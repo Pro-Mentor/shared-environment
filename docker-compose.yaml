@@ -47,6 +47,36 @@ services:
       - "-Dkeycloak.migration.dir=/tmp/import"
       - "-Dkeycloak.migration.strategy=IGNORE_EXISTING"
 
+  mongo:
+    image: mongo
+    hostname: mongo
+    container_name: mongo
+    networks:
+      - promentor_net
+    ports:
+      - 27017:27017
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_INITDB_ROOT_PASSWORD}
+    volumes:
+      - ./provision/mongo:/docker-entrypoint-initdb.d
+
+  rabbitmq:
+    image: rabbitmq:3.12
+    hostname: rabbitmq
+    container_name: rabbitmq
+    networks:
+      - promentor_net
+    ports:
+      - 5672:5672
+      - 15672:15672
+    environment:
+      - RABBITMQ_DEFAULT_USER=${RABBITMQ_DEFAULT_USER}
+      - RABBITMQ_DEFAULT_PASS=${RABBITMQ_DEFAULT_PASS}
+    volumes:
+      - ./.docker/rabbitmq/data/:/var/lib/rabbitmq/
+      - ./.docker/rabbitmq/logs/:/var/log/rabbitmq/
+
 networks:
   promentor_net:
 
