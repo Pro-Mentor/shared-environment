@@ -25,7 +25,7 @@
 
 ## Go to keycloak admin console
 
-- http://idp.promentor.local/
+- http://idp.promentor.local:8080/
 
 ```
     username: admin
@@ -52,7 +52,7 @@
 - then you can access admin panel for that realm using that user credentials
 
 ```
-http://idp.promentor.local/admin/<tenant id>/console/
+http://idp.promentor.local:8080/admin/<tenant id>/console/
 ```
 
 - replace the \<tenant\> id according to the tenant

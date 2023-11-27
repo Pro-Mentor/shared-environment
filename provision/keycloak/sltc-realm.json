@@ -471,6 +471,43 @@
       "subGroups": []
     },
     {
+      "id": "1fe43352-9351-4e04-9539-769023514e73",
+      "name": "class",
+      "path": "/class",
+      "attributes": {},
+      "realmRoles": [],
+      "clientRoles": {},
+      "subGroups": [
+        {
+          "id": "cb68772e-d20f-43e3-ac5e-59fbe9f01b3b",
+          "name": "2024",
+          "path": "/class/2024",
+          "attributes": {},
+          "realmRoles": [],
+          "clientRoles": {},
+          "subGroups": []
+        },
+        {
+          "id": "b7fbd056-d7de-46d6-bc8b-c008eac873d5",
+          "name": "2025",
+          "path": "/class/2025",
+          "attributes": {},
+          "realmRoles": [],
+          "clientRoles": {},
+          "subGroups": []
+        }
+      ]
+    },
+    {
+      "id": "ab518bb8-e420-4bd9-8252-2aabad09d65a",
+      "name": "degree-program",
+      "path": "/degree-program",
+      "attributes": {},
+      "realmRoles": [],
+      "clientRoles": {},
+      "subGroups": []
+    },
+    {
       "id": "0266055f-4b9b-48be-9770-df19b2a918ec",
       "name": "it-department",
       "path": "/it-department",
@@ -481,10 +518,19 @@
     },
     {
       "id": "6cd7ebd9-c11f-4e04-91c0-8e3d9a7a90bf",
-      "name": "lecture",
-      "path": "/lecture",
+      "name": "lecturer",
+      "path": "/lecturer",
       "attributes": {},
       "realmRoles": ["lecture"],
+      "clientRoles": {},
+      "subGroups": []
+    },
+    {
+      "id": "a111df0b-d8f3-4714-b1b4-6dd8264635ac",
+      "name": "school",
+      "path": "/school",
+      "attributes": {},
+      "realmRoles": [],
       "clientRoles": {},
       "subGroups": []
     },
@@ -516,9 +562,9 @@
   "otpPolicyPeriod": 30,
   "otpPolicyCodeReusable": false,
   "otpSupportedApplications": [
-    "totpAppGoogleName",
+    "totpAppMicrosoftAuthenticatorName",
     "totpAppFreeOTPName",
-    "totpAppMicrosoftAuthenticatorName"
+    "totpAppGoogleName"
   ],
   "webAuthnPolicyRpEntityName": "keycloak",
   "webAuthnPolicySignatureAlgorithms": ["ES256"],
@@ -1498,14 +1544,14 @@
         "subComponents": {},
         "config": {
           "allowed-protocol-mapper-types": [
-            "saml-user-attribute-mapper",
-            "saml-user-property-mapper",
-            "oidc-sha256-pairwise-sub-mapper",
             "oidc-usermodel-property-mapper",
-            "oidc-address-mapper",
             "oidc-usermodel-attribute-mapper",
-            "oidc-full-name-mapper",
-            "saml-role-list-mapper"
+            "oidc-address-mapper",
+            "saml-user-attribute-mapper",
+            "saml-role-list-mapper",
+            "oidc-sha256-pairwise-sub-mapper",
+            "saml-user-property-mapper",
+            "oidc-full-name-mapper"
           ]
         }
       },
@@ -1543,14 +1589,14 @@
         "subComponents": {},
         "config": {
           "allowed-protocol-mapper-types": [
+            "oidc-address-mapper",
             "oidc-usermodel-attribute-mapper",
-            "saml-user-attribute-mapper",
-            "saml-role-list-mapper",
-            "saml-user-property-mapper",
-            "oidc-usermodel-property-mapper",
             "oidc-sha256-pairwise-sub-mapper",
-            "oidc-full-name-mapper",
-            "oidc-address-mapper"
+            "saml-user-attribute-mapper",
+            "saml-user-property-mapper",
+            "saml-role-list-mapper",
+            "oidc-usermodel-property-mapper",
+            "oidc-full-name-mapper"
           ]
         }
       },
@@ -1584,14 +1630,6 @@
           "host-sending-registration-request-must-match": ["true"],
           "client-uris-must-match": ["true"]
         }
-      }
-    ],
-    "org.keycloak.userprofile.UserProfileProvider": [
-      {
-        "id": "1a337e01-d4bd-40d4-9c8c-c30f2f6f63b1",
-        "providerId": "declarative-user-profile",
-        "subComponents": {},
-        "config": {}
       }
     ],
     "org.keycloak.keys.KeyProvider": [
