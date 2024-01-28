@@ -151,6 +151,7 @@
       }
     ],
     "client": {
+      "pro-mentor-cdn-service": [],
       "realm-management": [
         {
           "id": "6d4c7b61-f2d9-4251-8b7a-7385d023cc90",
@@ -362,6 +363,7 @@
       "client-frontend-web-app": [],
       "admin-cli": [],
       "pro-mentor-auth-service": [],
+      "pro-mentor-social-service": [],
       "account-console": [],
       "broker": [
         {
@@ -854,6 +856,106 @@
         "client.secret.creation.time": "1698662124",
         "backchannel.logout.session.required": "true",
         "post.logout.redirect.uris": "http://localhost:8081/api/v1/auth/*",
+        "oauth2.device.authorization.grant.enabled": "false",
+        "backchannel.logout.revoke.offline.tokens": "false"
+      },
+      "authenticationFlowBindingOverrides": {},
+      "fullScopeAllowed": true,
+      "nodeReRegistrationTimeout": -1,
+      "defaultClientScopes": [
+        "web-origins",
+        "acr",
+        "roles",
+        "profile",
+        "email"
+      ],
+      "optionalClientScopes": [
+        "address",
+        "phone",
+        "offline_access",
+        "microprofile-jwt"
+      ]
+    },
+    {
+      "id": "f4a922f0-d3fb-4f39-86a3-34e531c15cbd",
+      "clientId": "pro-mentor-cdn-service",
+      "name": "CDN Service Client",
+      "description": "CDN service client for the Pro Mentor application",
+      "rootUrl": "http://localhost:8083",
+      "adminUrl": "http://localhost:8083",
+      "baseUrl": "http://localhost:8083",
+      "surrogateAuthRequired": false,
+      "enabled": true,
+      "alwaysDisplayInConsole": false,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "IVeD6oeAX7OEl4CZkznwiGikrbgCaEef",
+      "redirectUris": ["http://localhost:8083/api/v1/cdn/*"],
+      "webOrigins": ["http://localhost:8083"],
+      "notBefore": 0,
+      "bearerOnly": false,
+      "consentRequired": false,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "publicClient": false,
+      "frontchannelLogout": true,
+      "protocol": "openid-connect",
+      "attributes": {
+        "oidc.ciba.grant.enabled": "false",
+        "client.secret.creation.time": "1706439469",
+        "backchannel.logout.session.required": "true",
+        "post.logout.redirect.uris": "http://localhost:8083/api/v1/cdn/*",
+        "oauth2.device.authorization.grant.enabled": "false",
+        "backchannel.logout.revoke.offline.tokens": "false"
+      },
+      "authenticationFlowBindingOverrides": {},
+      "fullScopeAllowed": true,
+      "nodeReRegistrationTimeout": -1,
+      "defaultClientScopes": [
+        "web-origins",
+        "acr",
+        "roles",
+        "profile",
+        "email"
+      ],
+      "optionalClientScopes": [
+        "address",
+        "phone",
+        "offline_access",
+        "microprofile-jwt"
+      ]
+    },
+    {
+      "id": "70ef8f63-f48b-41d7-9b78-60a763d17719",
+      "clientId": "pro-mentor-social-service",
+      "name": "Social Service Client",
+      "description": "Social service client for the Pro Mentor application",
+      "rootUrl": "http://localhost:8084",
+      "adminUrl": "http://localhost:8084",
+      "baseUrl": "http://localhost:8084",
+      "surrogateAuthRequired": false,
+      "enabled": true,
+      "alwaysDisplayInConsole": false,
+      "clientAuthenticatorType": "client-secret",
+      "secret": "iI7uHOtgkv69Ek3LqrzShvjZePgH8FyB",
+      "redirectUris": ["http://localhost:8084/api/v1/social/*"],
+      "webOrigins": ["http://localhost:8081"],
+      "notBefore": 0,
+      "bearerOnly": false,
+      "consentRequired": false,
+      "standardFlowEnabled": true,
+      "implicitFlowEnabled": false,
+      "directAccessGrantsEnabled": true,
+      "serviceAccountsEnabled": false,
+      "publicClient": false,
+      "frontchannelLogout": true,
+      "protocol": "openid-connect",
+      "attributes": {
+        "oidc.ciba.grant.enabled": "false",
+        "client.secret.creation.time": "1706439782",
+        "backchannel.logout.session.required": "true",
+        "post.logout.redirect.uris": "http://localhost:8084/api/v1/social/*",
         "oauth2.device.authorization.grant.enabled": "false",
         "backchannel.logout.revoke.offline.tokens": "false"
       },
